@@ -1,8 +1,8 @@
 import "./App.css";
-import { BrowserRouter, useParams } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import DetailTodo from "./DetailTodo";
-import Home from "./home";
+import DetailTodo from "./pages/DetailTodo";
+import Home from "./pages/home";
 
 function App() {
   return (
