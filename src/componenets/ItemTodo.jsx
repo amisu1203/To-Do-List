@@ -1,16 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { remove_todo, get_done, turn_back } from "../redux/modules/setData";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { clearTodo } from "../redux/modules/setTodo";
 // import { useNavigate } from "react-router-dom";
 
 function ItemTodo({ todo }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // 상세페이지 이동
+  // 상세 이동
   const goDetail = () => {
     navigate(`/detail/${todo.id}`);
+    dispatch(clearTodo());
   };
 
   // 삭제

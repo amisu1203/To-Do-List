@@ -10,7 +10,7 @@ export const set_title = (e) => {
 export const set_content = (e) => {
   return { type: SET_CONTENT, payload: e.target.value };
 };
-export const reset = () => {
+export const clearTodo = () => {
   return { type: RESET };
 };
 

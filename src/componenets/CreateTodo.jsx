@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { set_title, set_content, reset } from "../redux/modules/setTodo";
+import { set_title, set_content, clearTodo } from "../redux/modules/setTodo";
 import { create_todo } from "../redux/modules/setData";
 import { v4 as uuidv4 } from "uuid";
 
@@ -36,7 +36,7 @@ const CreateToDo = () => {
       })
     );
     console.log(todoStore.id);
-    dispatch(reset());
+    dispatch(clearTodo());
     alert("해야 할 일이 생겼어요!");
   };
 
