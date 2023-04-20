@@ -3,7 +3,55 @@ import { useDispatch, useSelector } from "react-redux";
 import { set_title, set_content, clearTodo } from "../redux/modules/setTodo";
 import { create_todo } from "../redux/modules/setData";
 import { v4 as uuidv4 } from "uuid";
+import styled from "styled-components";
 
+// styled-components
+const StBox = styled.div`
+  background: rgb(226, 205, 205);
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 0 10px 0 100px;
+`;
+
+const StHeader = styled.div`
+  content: "";
+  display: block;
+  clear: both;
+`;
+
+const StInp = styled.input`
+  border: none;
+  border-radius: 10px;
+  line-height: 30px;
+  margin: 0 20px;
+  padding: 0 10px;
+`;
+
+const StBtnAdd = styled.button`
+  border: none;
+  border-radius: 10px;
+  line-height: 30px;
+  padding: 0 30px;
+  font-size: 17px;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.2s ease-in;
+  position: absolute;
+  right: 80px;
+
+  &:hover {
+    scale: 1.1;
+    background-color: rgba(255, 232, 251, 0.681);
+  }
+`;
+
+// CreateTodo
 const CreateToDo = () => {
   const dispatch = useDispatch();
   const todoStore = useSelector((state) => state.setTodo);
@@ -19,11 +67,11 @@ const CreateToDo = () => {
   };
 
   const handleAddTodo = () => {
-    if (todoStore.title.length < 2) {
+    if (todoStore.title.length < 1) {
       titleInput.current.focus();
       return;
     }
-    if (todoStore.content.length < 3) {
+    if (todoStore.content.length < 2) {
       contentInput.current.focus();
       return;
     }
@@ -41,10 +89,10 @@ const CreateToDo = () => {
   };
 
   return (
-    <div className="CreateToDo">
-      <header className="con-inp clearfix">
+    <StBox>
+      <StHeader>
         제목
-        <input
+        <StInp
           ref={titleInput}
           type="text"
           name="title"
@@ -52,9 +100,9 @@ const CreateToDo = () => {
           onChange={handleTitleChange}
           placeholder="제목을 만들어주세요."
           size={30}
-        ></input>
+        ></StInp>
         내용
-        <input
+        <StInp
           ref={contentInput}
           type="text"
           name="content"
@@ -62,12 +110,10 @@ const CreateToDo = () => {
           onChange={handleContentChange}
           placeholder="할 일을 입력해주세요"
           size={30}
-        ></input>
-        <button className="btn-add btn-original" onClick={handleAddTodo}>
-          추가하기
-        </button>
-      </header>
-    </div>
+        ></StInp>
+        <StBtnAdd onClick={handleAddTodo}>추가하기</StBtnAdd>
+      </StHeader>
+    </StBox>
   );
 };
 
