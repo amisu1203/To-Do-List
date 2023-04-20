@@ -19,7 +19,6 @@ const initialState = {
   title: "",
   content: "",
   isDone: false,
-  id: "",
 };
 
 // reducer

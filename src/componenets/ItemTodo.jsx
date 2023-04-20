@@ -1,9 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { remove_todo, get_done, turn_back } from "../redux/modules/setData";
+import { Link, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function ItemTodo({ todo }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // 상세페이지 이동
+  const goDetail = () => {
+    navigate(`/detail/${todo.id}`);
+  };
 
   // 삭제
   const handleRemove = () => {
@@ -23,7 +31,6 @@ function ItemTodo({ todo }) {
     dispatch(turn_back(todo.id));
     alert("다시 할 일이 추가됐네요!");
   };
-
   return todo.isDone ? (
     <>
       <article className="DoneItem box-same1">
@@ -33,7 +40,7 @@ function ItemTodo({ todo }) {
           <button className="btn-delete btn-original" onClick={handleRemove}>
             삭제
           </button>
-          <button className=" btn-original" onClick={handleTurnBack}>
+          <button className="btn-original" onClick={handleTurnBack}>
             취소
           </button>
         </div>
@@ -41,6 +48,7 @@ function ItemTodo({ todo }) {
     </>
   ) : (
     <>
+      <button onClick={goDetail}>상세 페이지로 가기</button>
       <article className="TodoItem box-same1">
         <h2>{todo.title}</h2>
         <p>{todo.content}</p>

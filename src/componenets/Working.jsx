@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ItemTodo from "./ItemTodo";
 
-const ListTodo = () => {
+const Working = () => {
   const dataStore = useSelector((state) => state.setData);
 
   return (
@@ -17,4 +17,4 @@ const ListTodo = () => {
   );
 };
 
-export default ListTodo;
+export default Working;

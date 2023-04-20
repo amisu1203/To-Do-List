@@ -2,15 +2,13 @@ import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { set_title, set_content, reset } from "../redux/modules/setTodo";
 import { create_todo } from "../redux/modules/setData";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateToDo = () => {
   const dispatch = useDispatch();
   const todoStore = useSelector((state) => state.setTodo);
   const titleInput = useRef();
   const contentInput = useRef();
-
-  // id 생성
-  const todoId = useRef(0);
 
   const handleTitleChange = (e) => {
     dispatch(set_title(e));
@@ -34,10 +32,10 @@ const CreateToDo = () => {
         title: todoStore.title,
         content: todoStore.content,
         isDone: false,
-        id: todoId.current,
+        id: uuidv4(),
       })
     );
-    todoId.current++;
+    console.log(todoStore.id);
     dispatch(reset());
     alert("해야 할 일이 생겼어요!");
   };

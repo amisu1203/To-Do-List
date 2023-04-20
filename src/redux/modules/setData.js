@@ -26,7 +26,7 @@ export const turn_back = (id) => ({
 });
 
 // 초기값
-const initialState = [];
+const initialState = [{ title: "과제 제출", content: "5월 25일까지 제출하기", isDone: false, id: "1" }];
 
 // reducer
 const reducer_setData = (state = initialState, action) => {
