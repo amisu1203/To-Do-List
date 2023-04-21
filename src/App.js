@@ -1,7 +1,7 @@
 import "./reset.css";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import DetailTodo from "./pages/DetailTodo";
+import Detail from "./pages/Detail";
 import Home from "./pages/home";
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ function App() {
       <StBox>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail/:id" element={<DetailTodo />} />
+          <Route path="/detail/:id" element={<Detail />} />
         </Routes>
       </StBox>
     </BrowserRouter>
