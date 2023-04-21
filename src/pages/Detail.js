@@ -51,7 +51,7 @@ const StTitle = styled.h1`
 `;
 
 const StContent = styled.p`
-  padding: 0px 24px;
+  padding: 0px 26px;
 `;
 
 function DetailTodo() {
