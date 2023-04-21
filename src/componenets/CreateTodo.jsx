@@ -83,7 +83,7 @@ const CreateToDo = () => {
         id: uuidv4(),
       })
     );
-    console.log(todoStore.id);
+
     dispatch(clearTodo());
     alert("해야 할 일이 생겼어요!");
   };

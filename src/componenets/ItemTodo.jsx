@@ -16,7 +16,8 @@ const StBox = styled.div`
   background-color: #d9e4f5;
   background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 20px 0;
+  padding: 20px 20px;
+  box-sizing: border-box;
 `;
 
 const BtnGoDetail = styled.button`
@@ -29,7 +30,7 @@ const BtnGoDetail = styled.button`
   cursor: pointer;
 `;
 
-const StTitle = styled.h1`
+const StTitle = styled.h3`
   font-size: 24px;
   font-weight: 600;
   margin: 10px 0;
@@ -43,8 +44,14 @@ const StTxt = styled.p`
 const StBoxBtns = styled.div`
   margin-bottom: 20px;
   display: flex;
-  width: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  > * {
+    flex: 0 1 auto;
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 `;
 
 const StBtn = styled.button`
@@ -91,16 +98,12 @@ function ItemTodo({ todo }) {
   return todo.isDone ? (
     <StBox>
       <BtnGoDetail onClick={goDetail}>상세 보기</BtnGoDetail>
-      <article className="DoneItem box-same1">
+      <article>
         <StTitle>{todo.title}</StTitle>
         <StTxt>{todo.content}</StTxt>
-        <StBoxBtns className="con-btns">
-          <StBtn className="btn-delete btn-original" onClick={handleRemove}>
-            삭제
-          </StBtn>
-          <StBtn className="btn-original" onClick={handleTurnBack}>
-            취소
-          </StBtn>
+        <StBoxBtns>
+          <StBtn onClick={handleRemove}>삭제</StBtn>
+          <StBtn onClick={handleTurnBack}>취소</StBtn>
         </StBoxBtns>
       </article>
     </StBox>
@@ -110,13 +113,9 @@ function ItemTodo({ todo }) {
       <article className="TodoItem box-same1">
         <StTitle>{todo.title}</StTitle>
         <StTxt>{todo.content}</StTxt>
-        <StBoxBtns className="con-btns">
-          <StBtn className="btn-delete btn-original" onClick={handleRemove}>
-            삭제
-          </StBtn>
-          <StBtn className="btn-original" onClick={handleDone}>
-            완료
-          </StBtn>
+        <StBoxBtns>
+          <StBtn onClick={handleRemove}>삭제</StBtn>
+          <StBtn onClick={handleDone}>완료</StBtn>
         </StBoxBtns>
       </article>
     </StBox>
