@@ -3,7 +3,7 @@
 
 **지금 바로 [✨이 곳을✨](https://to-do-list-one-tawny.vercel.app/) 눌러 프로젝트를 확인해보세요**
 
-![투두 움짤](https://user-images.githubusercontent.com/93499095/232104960-404c6672-9072-4094-963f-65fe7305dc22.gif)
+![투두 움짤](https://user-images.githubusercontent.com/93499095/233969584-aef0d8b2-afc3-41bc-9c09-4a6aa87a4358.gif)
 
 
 ## 👀 기능 소개
